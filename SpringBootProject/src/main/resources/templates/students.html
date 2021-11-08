@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Students List</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<h1>List Students</h1>
+
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Name</th>
+					<th scope="col">email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each ="student:${students}">
+				    <td th:text ="${student.id}"></td>
+				     <td th:text ="${student.sName}"></td>
+				    <td th:text ="${student.sEmail}"></td>
+				    
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
