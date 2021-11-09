@@ -28,7 +28,6 @@ public class Testemployee {
 		emp.setHireDate(ld);
 		emp.setSalary(11000);
 		emp.setComm(32);
-		emp.setDeptNo(1);
 		empRepo.insertEmployee(emp);
 		
 	}
@@ -42,7 +41,6 @@ public class Testemployee {
 		emp.setMgr(7839);
 		emp.setSalary(11000);
 		emp.setComm(32);
-		emp.setDeptNo(1);
 		empRepo.updateEmployee(emp);
 	}
 	@Test

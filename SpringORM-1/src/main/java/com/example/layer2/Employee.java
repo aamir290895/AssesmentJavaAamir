@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -36,8 +38,10 @@ public class Employee {
 	@Column(name="comm")
 	private int comm;
 	
-	@Column(name="deptno")
-	private int deptNo;
+	@ManyToOne
+	@JoinColumn(name="deptno")
+	private Department dept;
+	
 
 	public int getEmpNo() {
 		return empNo;
@@ -97,13 +101,15 @@ public class Employee {
 		this.comm = comm;
 	}
 
-	public int getDeptNo() {
-		return deptNo;
+	public Department getDept() {
+		return dept;
 	}
 
-	public void setDeptNo(int deptNo) {
-		this.deptNo = deptNo;
+	public void setDept(Department dept) {
+		this.dept = dept;
 	}
+
+	
 
 	
 	
