@@ -1,20 +1,34 @@
-
-package com.example.demo;
-
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.layer2.Passport;
-import com.example.layer2.Person;
-@SpringBootTest
-public class Test3 {
+import com.java.entity.Department;
+import com.java.one2one.Passport;
+import com.java.one2one.Person;
+
+public class OneToOneCRUDTest3 {
+	
+	/*
+	 * PERSON1
+	 * Persionid	personname		passport_passportid
+	 * 1			Smith			null
+	 * 
+	 * PASSPORT1
+	 * passportid		issuedby	issueddate	expiry	person_personid
+	 * 2				...			...			...		null
+	 * 
+	 */
+	
+	
 	@Test
 	public void insertPerson() {
 		EntityManagerFactory entityManagerFactory = 
@@ -183,3 +197,8 @@ public class Test3 {
 			transaction.commit();
 	}
 }
+
+
+
+
+

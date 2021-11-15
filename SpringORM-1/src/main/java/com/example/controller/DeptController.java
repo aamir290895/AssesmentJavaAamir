@@ -15,45 +15,43 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.layer2.Department;
 import com.example.layer3.DepartmentRepository;
 
+@RestController
+@RequestMapping("/dept")
+public class DeptController {
+	@Autowired
+	DepartmentRepository deptRepo;
 
-    
-    @RestController
-    @RequestMapping("/dept")
-    public class DeptController {
-    @Autowired
-    DepartmentRepository deptRepo;
+	@GetMapping("/get/{dno}") // localhost:8080/dept/get/14
+	public Department getDept(@PathVariable("dno") int x) {
+		Department dept;
+		dept = deptRepo.selectDepartment(x);
+		return dept;
+	}
 
-    @GetMapping("/get/{dno}") //localhost:8080/dept/get/14
-    public Department getDept(@PathVariable("dno") int x) {
-    Department dept ;
-    dept = deptRepo.selectDepartment(x);
-    return dept;
-    }
+	@GetMapping("/getAll") // localhost:8080/dept/getAll
+	public List<Department> getDepts() {
+		List<Department> deptList;
+		deptList = deptRepo.selectDepartments();
+		return deptList;
+	}
 
-    @GetMapping("/getAll") //localhost:8080/dept/getAll
-    public List<Department> getDepts(){
-    List<Department> deptList ;
-    deptList = deptRepo.selectDepartments();
-    return deptList;
-    }
+	@PostMapping("/add") // localhost:8080/dept/add
+	public void addDept(@RequestBody Department deptObj) {
+		deptRepo.insertDepartment(deptObj);
 
-    @PostMapping("/add") //localhost:8080/dept/add
-    public void addDept (@RequestBody Department deptObj) {
-    deptRepo.insertDepartment(deptObj);
+	}
 
-    }
-    @PutMapping("/update") //localhost:8080/dept/add
-    public void updateDept (@RequestBody Department deptObj) {
-    deptRepo.updateDepartment(deptObj);
+	@PutMapping("/update") // localhost:8080/dept/add
+	public void updateDept(@RequestBody Department deptObj) {
+		deptRepo.updateDepartment(deptObj);
 
-    }
-   
-    @DeleteMapping("/delete/{dno}") //localhost:8080/dept/get/14
-    public String delDept(@PathVariable("dno") int x) {
-   
-    deptRepo.deleteDepartment(x);
-    return "deleted....";
-    }
+	}
 
-    }
+	@DeleteMapping("/delete/{dno}") // localhost:8080/dept/get/14
+	public String delDept(@PathVariable("dno") int x) {
 
+		deptRepo.deleteDepartment(x);
+		return "deleted....";
+	}
+
+}

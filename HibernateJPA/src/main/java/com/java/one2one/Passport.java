@@ -1,4 +1,4 @@
-package com.example.layer2;
+package com.java.one2one;
 
 import java.time.LocalDate;
 
@@ -7,15 +7,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/*
+  PK										  FK(unique)
+  passportId  issuedBy  issuedDate expiryDate PERSONID
+   123		  Govt.Ind  2021-10-12 2032-10-12 1
+   334		  Govt.Ind  2021-12-07 2032-12-07 2	
+   556		  Govt.Ind  2021-12-07 2032-12-07 2
+ */
 @Entity
-@Table(name="passport")
+@Table(name="passport1")
 public class Passport {
 
 	@Id
 	@GeneratedValue
 	private int passportId; //1
-	
 	
 	private String issuedBy; //2
 	private LocalDate issueDate; //3

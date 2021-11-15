@@ -1,14 +1,33 @@
-package com.example.layer2;
+package com.java.one2one;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+/*
+ * 		One Person   <--> One Passport
+ * 		One Passport <--> One Person
+ 
+  PK					   FK(unique)
+  personid	personName    PASSPORTID
+  1			Jack		  123
+  2			Jane		  334
+  3			Jill		  
+  
+  
+  1  - tables - ER diagram  7/8
+  2  - pojos - entities
+  3  - repos
+  4  - service <-- 
+  5  - spring rest api calls
+  6  - react
+  
+ */
 @Entity
-@Table(name ="person")
+@Table(name="person1")
 public class Person {
-	
+
 	@Id
 	@GeneratedValue
 	private int personId; //1
@@ -54,6 +73,7 @@ public class Person {
 	public void setPersonName(String personName) {
 		this.personName = personName;
 	}
+	
 	
 
 }
